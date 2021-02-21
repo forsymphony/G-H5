@@ -1,15 +1,24 @@
 {
-    "uni-app": {
-        "scripts": {
-            "mp-dingtalk": { 
-                "title":"钉钉小程序", 
-                "env": { 
-                    "UNI_PLATFORM": "mp-alipay" 
-                },
-                "define": { 
-                    "MP-DINGTALK": true 
-                }
-            }
-        }
-    }
+  "name": "uniapp-wechath5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.aihuoshi.net:FD-framework/uniApp-wechatH5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-md5": "^0.7.3",
+    "vant": "^2.12.6",
+    "vue-amap": "^0.5.10"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.3",
+    "uninstall": "0.0.0"
+  }
 }

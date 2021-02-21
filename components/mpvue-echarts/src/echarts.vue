@@ -1,5 +1,14 @@
 <template>
-	<canvas v-if="canvasId" class="ec-canvas" :id="canvasId" :canvasId="canvasId" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" @error="error"></canvas>
+	<canvas 
+	v-if="canvasId" 
+	class="ec-canvas" 
+	:id="canvasId" 
+	:canvasId="canvasId"
+	@touchstart="touchStart" 
+	@touchmove="touchMove" 
+	@touchend="touchEnd" 
+	@error="error">
+	</canvas>
 </template>
 
 <script>
@@ -21,7 +30,7 @@ export default {
 		},
 		throttleTouch: {
 			type: Boolean,
-			default: false
+			default: true
 		}
 	},
 	// #ifdef H5
@@ -82,6 +91,7 @@ export default {
 			});
 		},
 		touchMove(e) {
+			console.log(e)
 			const { disableTouch, throttleTouch, chart, lastMoveTime } = this;
 			if (disableTouch || !chart || !e.mp.touches.length) return;
 
