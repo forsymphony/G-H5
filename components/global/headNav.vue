@@ -7,11 +7,13 @@
 			<image src="../../static/img/quxiao.png" mode=""  class="close" v-if="iconShow == false" @click="iconShowFun"></image>
 			<image src="../../static/img/liebiao.png" mode="" class="choose" v-else @click="iconShowFun"></image>
 		</view>
-		<view class="list" v-if="iconShow == false">
-			<p class="pItem" :class="{isActive:pShow == 1}" @click="change(1)">首页</p>
-			<p class="pItem" :class="{isActive:pShow == 2}" @click="change(2)">产品</p>
-			<p class="pItem" :class="{isActive:pShow == 3}" @click="change(3)">解决方案</p>
-			<p class="pItem" :class="{isActive:pShow == 4}" @click="change(4)">关于我们</p>
+		<view class="pop" @touchmove="closeNav" v-if="iconShow == false">
+			<view class="list">
+				<p class="pItem" :class="{isActive:pShow == 1}" @click="change(1)">首页</p>
+				<p class="pItem" :class="{isActive:pShow == 2}" @click="change(2)">产品</p>
+				<p class="pItem" :class="{isActive:pShow == 3}" @click="change(3)">解决方案</p>
+				<p class="pItem" :class="{isActive:pShow == 4}" @click="change(4)">关于我们</p>
+			</view>
 		</view>
 	</view>
 </template>
@@ -27,6 +29,11 @@
 		methods:{
 			iconShowFun(){
 				this.iconShow = !this.iconShow
+			},
+			closeNav(){
+				this.iconShow = true
+				// event.preventDefault()
+				console.log("aa")
 			},
 			change(num){
 				this.pShow = num
@@ -90,25 +97,31 @@
 				margin-top: 36rpx;
 			}
 		}
-		.list{
-			position: fixed;
-			top: 128rpx;
-			background-color: #FFFFFF;
-			z-index: 999;
-			.pItem{
-				width: 100vw;
-				padding: 0 32rpx;
-				font-size: 24rpx;
-				line-height: 84rpx;
-				height: 84rpx;
-				padding-left: 48rpx;
-				font-weight: 400;
-				
-			}
-			.isActive{
-				background-color: #edf8f5;
-				color: #1989fa;
-				
+		.pop{
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			z-index: 100;
+			.list{
+				position: fixed;
+				top: 128rpx;
+				background-color: #FFFFFF;
+				z-index: 999;
+				.pItem{
+					width: 100vw;
+					padding: 0 32rpx;
+					font-size: 24rpx;
+					line-height: 84rpx;
+					height: 84rpx;
+					padding-left: 48rpx;
+					font-weight: 400;
+					
+				}
+				.isActive{
+					background-color: #edf8f5;
+					color: #1989fa;
+					
+				}
 			}
 		}
 	}
